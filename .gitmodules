@@ -1,0 +1,3 @@
+[submodule "ext/Vortice.Vulkan"]
+	path = ext/Vortice.Vulkan
+	url = https://github.com/taumuon/Vortice.Vulkan

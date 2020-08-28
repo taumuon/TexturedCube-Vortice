@@ -400,8 +400,8 @@ namespace VulkanCore.Samples
                 var debugCreateInfo = new VkDebugUtilsMessengerCreateInfoEXT
                 {
                     sType = VkStructureType.DebugUtilsMessengerCreateInfoEXT,
-                    messageSeverity = VkDebugUtilsMessageSeverityFlagsEXT.VerboseEXT | VkDebugUtilsMessageSeverityFlagsEXT.ErrorEXT | VkDebugUtilsMessageSeverityFlagsEXT.WarningEXT,
-                    messageType = VkDebugUtilsMessageTypeFlagsEXT.GeneralEXT | VkDebugUtilsMessageTypeFlagsEXT.ValidationEXT | VkDebugUtilsMessageTypeFlagsEXT.PerformanceEXT,
+                    messageSeverity = VkDebugUtilsMessageSeverityFlagsEXT.Verbose | VkDebugUtilsMessageSeverityFlagsEXT.Error | VkDebugUtilsMessageSeverityFlagsEXT.Warning,
+                    messageType = VkDebugUtilsMessageTypeFlagsEXT.General | VkDebugUtilsMessageTypeFlagsEXT.Validation | VkDebugUtilsMessageTypeFlagsEXT.Performance,
                     pfnUserCallback = Marshal.GetFunctionPointerForDelegate(_debugMessengerCallbackFunc)
                 };
 
@@ -418,7 +418,7 @@ namespace VulkanCore.Samples
                     IntPtr userData)
         {
             var message = Vortice.Vulkan.Interop.GetString(pCallbackData->pMessage);
-            if (messageTypes == VkDebugUtilsMessageTypeFlagsEXT.ValidationEXT)
+            if (messageTypes == VkDebugUtilsMessageTypeFlagsEXT.Validation)
             {
                 Debug.WriteLine($"[Vulkan]: Validation: {messageSeverity} - {message}");
             }
@@ -483,10 +483,10 @@ namespace VulkanCore.Samples
                 ? VkFormat.B8G8R8A8UNorm
                 : formats[0].format;
             VkPresentModeKHR presentMode =
-                presentModes.Contains(VkPresentModeKHR.MailboxKHR) ? VkPresentModeKHR.MailboxKHR :
-                presentModes.Contains(VkPresentModeKHR.FifoRelaxedKHR) ? VkPresentModeKHR.FifoRelaxedKHR :
-                presentModes.Contains(VkPresentModeKHR.FifoKHR) ? VkPresentModeKHR.FifoKHR :
-                VkPresentModeKHR.ImmediateKHR;
+                presentModes.Contains(VkPresentModeKHR.Mailbox) ? VkPresentModeKHR.Mailbox :
+                presentModes.Contains(VkPresentModeKHR.FifoRelaxed) ? VkPresentModeKHR.FifoRelaxed :
+                presentModes.Contains(VkPresentModeKHR.Fifo) ? VkPresentModeKHR.Fifo :
+                VkPresentModeKHR.Immediate;
 
             SwapChainSupportDetails swapChainSupport = QuerySwapChainSupport(Context.PhysicalDevice, Surface);
             VkSurfaceFormatKHR surfaceFormat = ChooseSwapSurfaceFormat(swapChainSupport.Formats);
@@ -521,7 +521,7 @@ namespace VulkanCore.Samples
 
                 // Setting clipped to VK_TRUE allows the implementation to discard rendering outside of the Surface area
                 clipped = true,
-                compositeAlpha = VkCompositeAlphaFlagsKHR.OpaqueKHR,
+                compositeAlpha = VkCompositeAlphaFlagsKHR.Opaque,
             };
             VkSwapchainKHR SwapChain;
 
@@ -535,7 +535,7 @@ namespace VulkanCore.Samples
             foreach (var availableFormat in availableFormats)
             {
                 if (availableFormat.format == VkFormat.B8G8R8A8SRgb &&
-                    availableFormat.colorSpace == VkColorSpaceKHR.SrgbNonlinearKHR)
+                    availableFormat.colorSpace == VkColorSpaceKHR.SrgbNonlinear)
                 {
                     return availableFormat;
                 }
