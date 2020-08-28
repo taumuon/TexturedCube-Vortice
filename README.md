@@ -10,3 +10,6 @@ I've been developing a Vulkan renderer for a while, and it was based on VulkanCo
 https://github.com/discosultan/VulkanCore/issues/40 indicates that the project may no longer be under development.
 
 Instead of translating my renderer over in one large change, I first ported over the TexturedCube sample, and thought I'd make it available for other devs.
+
+### Credits
+Some of the interop code and examples of using Vortice.Vulkan were taken from https://github.com/FaberSanZ/Zeckoxe-Engine 
