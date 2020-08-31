@@ -16,10 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\ext\Vortice.Vulkan\src\Vortice.Vulkan\Vortice.Vulkan.csproj" />
+    <PackageReference Include="Vortice.Vulkan" Version="1.2.152.1" />
   </ItemGroup>
 
 </Project>

@@ -72,10 +72,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ext\Vortice.Vulkan\src\Vortice.Vulkan\Vortice.Vulkan.csproj">
-      <Project>{fe27f45d-a84f-4f37-9fce-e0eaa7eb267a}</Project>
-      <Name>Vortice.Vulkan</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\MiniFramework\MiniFramework.csproj">
       <Project>{9becf614-4e1a-4053-a7a0-3a7b0bca0cf0}</Project>
       <Name>MiniFramework</Name>
@@ -84,6 +80,9 @@
   <ItemGroup>
     <PackageReference Include="System.Numerics.Vectors">
       <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Vortice.Vulkan">
+      <Version>1.2.152.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
